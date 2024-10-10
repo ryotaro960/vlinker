@@ -30,6 +30,14 @@ ul{
 .lists-right{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+
+.user-image{
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  overflow: hidden;
 }
 
 .user-manage{

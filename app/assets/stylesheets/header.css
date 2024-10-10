@@ -1,0 +1,39 @@
+.header-contents{
+  width: 100vw;
+  height: 100px;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vlinker-logo{
+  width: 50px;
+  height: 50px;
+}
+
+ul{
+  list-style: none;
+}
+
+.lists-left{
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-bt{
+  width: 200px;
+  height: 30px;
+  background-color: lightgray;
+}
+
+.lists-right{
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-manage{
+  width: 200px;
+  height: 30px;
+  border: 1pt black;
+}

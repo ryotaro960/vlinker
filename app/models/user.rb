@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :nickname, presence: true, length: { in: 1..20}
+
   # has_many :posts
   # has_many :comments, through: :posts
   has_one_attached :user_image

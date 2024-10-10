@@ -1,24 +1,101 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column           | Type | Options   |
+| ---------------- | ---- | --------- |
+|nickname          |string|null: false|
+|email             |string|null: false, unique: true|
+|encrypted_password|string|null: false|
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :posts
+- has_many :comments, through: :posts
+- has_one  :user_image
 
-* Configuration
 
-* Database creation
+## posts テーブル
 
-* Database initialization
+| Column       | Type     | Options   |
+| ------------ | -------- | --------- |
+|user          |references|null: false, foreign_key: true|
+|movie_main    |string    |null: false|
+|movie_left    |string    |           |
+|movie_right   |string    |           |
+|talent_name   |string    |null: false|
+|talent_belongs|string    |           |
+|talent_channel|string    |           |
+|talent_x      |string    |           |
+|talent_hp     |string    |           |
+|message       |string    |           |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one  :talent_image
+- has_many :comments
+- has_many :movie_tag, through: :post_movie_tags
+- has_many :talent_tag, through: :post_talent_tags
 
-* Deployment instructions
 
-* ...
+## movie_tagテーブル
+
+| Column       | Type | Options                 |
+| ------------ | ---- | ----------------------- |
+|movie_tag_name|string|null: false, unique: true|
+
+### Association
+
+- has_many :posts
+- has_many :posts, through: :posts_movie_tags
+
+
+## posts_movie_tagテーブル
+
+| Column       | Type     | Options                      |
+| ------------ | -------- | ---------------------------- |
+|post          |references|null: false, foreign_key: true|
+|movie_tag_name|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :post
+- belongs_to :movie
+
+
+## talent_tagテーブル
+
+| Column        | Type | Options                 |
+| ------------- | ---- | ----------------------- |
+|talent_tag_name|string|null: false, unique: true|
+
+### Association
+
+- has_many :posts
+- has_many :posts, through: :posts_talent_tags
+
+
+## posts_talent_tagテーブル
+
+| Column        | Type     | Options                      |
+| ------------- | -------- | ---------------------------- |
+|post           |references|null: false, foreign_key: true|
+|talent_tag_name|references|null: false, foreign_key: true|
+
+- belongs_to :post
+- belongs_to :talent
+
+
+## comments テーブル
+
+|Column | Type     | Options                      |
+| ----- | -------- | ---------------------------- |
+|content|string    |null: false                   |
+|user   |references|null: false, foreign_key: true|
+|post   |references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- belongs_to :post

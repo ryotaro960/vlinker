@@ -39,7 +39,7 @@
 - has_many :talent_tag, through: :post_talent_tags
 
 
-## movie_tagテーブル
+## movie_tagsテーブル
 
 | Column       | Type | Options                 |
 | ------------ | ---- | ----------------------- |
@@ -51,12 +51,12 @@
 - has_many :posts, through: :posts_movie_tags
 
 
-## posts_movie_tagテーブル
+## post_movie_tagsテーブル
 
-| Column       | Type     | Options                      |
-| ------------ | -------- | ---------------------------- |
-|post          |references|null: false, foreign_key: true|
-|movie_tag_name|references|null: false, foreign_key: true|
+| Column  | Type     | Options                      |
+| ------- | -------- | ---------------------------- |
+|post     |references|null: false, foreign_key: true|
+|movie_tag|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -64,7 +64,7 @@
 - belongs_to :movie
 
 
-## talent_tagテーブル
+## talent_tagsテーブル
 
 | Column        | Type | Options                 |
 | ------------- | ---- | ----------------------- |
@@ -76,12 +76,12 @@
 - has_many :posts, through: :posts_talent_tags
 
 
-## posts_talent_tagテーブル
+## post_talent_tagsテーブル
 
-| Column        | Type     | Options                      |
-| ------------- | -------- | ---------------------------- |
-|post           |references|null: false, foreign_key: true|
-|talent_tag_name|references|null: false, foreign_key: true|
+| Column   | Type     | Options                      |
+| -------- | -------- | ---------------------------- |
+|post      |references|null: false, foreign_key: true|
+|talent_tag|references|null: false, foreign_key: true|
 
 - belongs_to :post
 - belongs_to :talent

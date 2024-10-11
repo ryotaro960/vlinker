@@ -1,0 +1,7 @@
+<h1>紹介ページ投稿</h1>
+
+<%= form_with model: @post, url: posts_path, local: true do |f| %>
+
+
+<%= f.file_field :image, id:"talent-image" %>
+<%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>

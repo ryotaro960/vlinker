@@ -4,7 +4,7 @@
     <li><%= link_to '動画検索', "#", class: "search-bt" %></li>
     <li><%= link_to 'VTuber検索', "#", class: "search-bt" %></li>
     <% if user_signed_in? %>
-      <li><%= link_to '新規投稿', "#", class: "search-bt" %></li>
+      <li><%= link_to '新規投稿', new_post_path, class: "search-bt" %></li>
     <% end %>
   </ul>
 

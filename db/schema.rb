@@ -66,8 +66,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_11_024418) do
   create_table "posts", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "movie_main", null: false
+    t.string "movie_main_thumbnail", null: false
     t.string "movie_left"
+    t.string "movie_left_thumbnail"
     t.string "movie_right"
+    t.string "movie_right_thumbnail"
     t.string "talent_name", null: false
     t.string "talent_belongs"
     t.string "talent_channel"

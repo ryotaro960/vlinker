@@ -17,18 +17,21 @@
 
 ## posts テーブル
 
-| Column       | Type     | Options   |
-| ------------ | -------- | --------- |
-|user          |references|null: false, foreign_key: true|
-|movie_main    |string    |null: false|
-|movie_left    |string    |           |
-|movie_right   |string    |           |
-|talent_name   |string    |null: false|
-|talent_belongs|string    |           |
-|talent_channel|string    |           |
-|talent_x      |string    |           |
-|talent_hp     |string    |           |
-|message       |string    |           |
+| Column              | Type     | Options   |
+| ------------------- | -------- | --------- |
+|user                 |references|null: false, foreign_key: true|
+|movie_main           |string    |null: false|
+|movie_main_thumbnail |string    |null: false|
+|movie_left           |string    |           |
+|movie_left_thumbnail |string    |           |
+|movie_right          |string    |           |
+|movie_right_thumbnail|string    |           |
+|talent_name          |string    |null: false|
+|talent_belongs       |string    |           |
+|talent_channel       |string    |           |
+|talent_x             |string    |           |
+|talent_hp            |string    |           |
+|message              |string    |           |
 
 ### Association
 

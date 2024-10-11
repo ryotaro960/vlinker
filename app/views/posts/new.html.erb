@@ -2,6 +2,41 @@
 
 <%= form_with model: @post, url: posts_path, local: true do |f| %>
 
+メイン動画<br>
+<%= f.text_field :movie_main, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_main_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+メイン動画タグ(任意)<br>
+<%= f.text_field :movie_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+サブ動画1(任意)<br>
+<%= f.text_field :movie_left, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_left_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+サブ動画2(任意)<br>
+<%= f.text_field :movie_right, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_right_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+VTuberイラスト(任意)<br>
+<%= f.file_field :image, id:"talent-image" %><br>
+名前<br>
+<%= f.text_field :talent_name, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+所属事務所(任意)<br>
+<%= f.text_field :talent_belongs, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+公式チャンネル(任意)<br>
+<%= f.text_field :talent_channel, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+公式X(任意)<br>
+<%= f.text_field :talent_x, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+公式ホームページ(任意)<br>
+<%= f.text_field :talent_hp, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+投稿者からのコメント(任意)<br>
+<%= f.text_field :message, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+VTuberタグ(任意)<br>
+<%= f.text_field :talent_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :talent_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :talent_tag_name, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
 
-<%= f.file_field :image, id:"talent-image" %>
-<%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+
+<div class="sell-btn-contents">
+  <%= f.submit "投稿する" ,class:"post-btn" %>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+</div>
+<% end %>

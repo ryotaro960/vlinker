@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
   validates :movie_main, presence: true
-  validates :talent_name, presence: true, length{ in: 1..30}
+  validates :talent_name, presence: true, length: { maximum: 30}
 
   belongs_to :user
   has_one  :talent_image

@@ -5,9 +5,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.string :movie_main, null: false
       t.string :movie_main_thumbnail, null: false
       t.string :movie_left
-      t.string :movie_left_thumbnail
       t.string :movie_right
-      t.string :movie_right_thumbnail
       t.string :talent_name, null: false
       t.string :talent_belongs
       t.string :talent_channel

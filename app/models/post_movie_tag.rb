@@ -1,9 +1,6 @@
 class PostMovieTag < ApplicationRecord
 
-  validates :post, presence: true
-  validates :movie_tag, presence: true
-
   belongs_to :post
-  belongs_to :movie
+  belongs_to :movie_tag
 
 end

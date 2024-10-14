@@ -23,9 +23,7 @@
 |movie_main           |string    |null: false|
 |movie_main_thumbnail |string    |null: false|
 |movie_left           |string    |           |
-|movie_left_thumbnail |string    |           |
 |movie_right          |string    |           |
-|movie_right_thumbnail|string    |           |
 |talent_name          |string    |null: false|
 |talent_belongs       |string    |           |
 |talent_channel       |string    |           |

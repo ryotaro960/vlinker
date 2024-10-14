@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def index  
+    @posts = Post.all
   end
 
   def new
@@ -18,8 +19,9 @@ class PostsController < ApplicationController
   end
 
   private
+  
   def post_form_params
-    params.require(:post_form).permit(:movie_main, :movie_main_thumbnail, :movie_left, :movie_left_thumbnail, :movie_right, :movie_right_thumbnail, :talent_image, :talent_name, :talent_belongs, :talent_channel, :talent_x, :talent_hp, :message).merge(user_id: current_user.id)
+    params.require(:post_form).permit(:movie_main, :movie_main_thumbnail, :movie_left, :movie_left_thumbnail, :movie_right, :movie_right_thumbnail, :talent_name, :talent_belongs, :talent_channel, :talent_x, :talent_hp, :message, :movie_tag_name, :talent_tag_name, :talent_image).merge(user_id: current_user.id)
   end
 
 end

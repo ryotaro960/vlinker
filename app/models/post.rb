@@ -8,11 +8,10 @@ class Post < ApplicationRecord
   has_many :post_talent_tags
   has_many :talent_tags, through: :post_talent_tags
 
-  validates :movie_main, presence: true
-  validates :movie_main_embedded, presence: true
-  validates :movie_main_thumbnail, presence: true
-  validates :talent_name, presence: true, length: { maximum: 20}
-  validates :user, presence: true
-  validates :message, length: { maximum: 250}
-
+  # validates :movie_main, presence: true
+  # validates :movie_main_embedded, presence: true
+  # validates :movie_main_thumbnail, presence: true
+  # validates :talent_name, presence: true, length: { maximum: 20}
+  # validates :user_id, presence: true
+  # validates :message, length: { maximum: 250}
 end

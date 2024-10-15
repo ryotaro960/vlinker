@@ -3,6 +3,13 @@ class PostForm
 
   attr_accessor :user_id, :movie_main, :movie_main_embedded, :movie_main_thumbnail, :movie_left, :movie_left_embedded, :movie_right, :movie_right_embedded, :talent_image, :talent_name, :talent_belongs, :talent_channel, :talent_x, :talent_hp, :message, :movie_tag_name, :talent_tag_name, :id, :created_at, :updated_at
 
+  validates :movie_main, presence: true
+  validates :movie_main_embedded, presence: true
+  validates :movie_main_thumbnail, presence: true
+  validates :talent_name, presence: true, length: { maximum: 20}
+  validates :user_id, presence: true
+  validates :message, length: { maximum: 250}
+
   def save
     post = Post.create(user_id: user_id, movie_main: movie_main, movie_main_embedded: movie_main_embedded, movie_main_thumbnail: movie_main_thumbnail, movie_left: movie_left, movie_left_embedded: movie_left_embedded, movie_right: movie_right, movie_right_embedded: movie_right_embedded, talent_image: talent_image, talent_name: talent_name, talent_belongs: talent_belongs, talent_channel: talent_channel, talent_x: talent_x, talent_hp: talent_hp, message: message)
     

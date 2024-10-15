@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :post do
+  factory :post_form do
     
     movie_main {'https://youtu' + Faker::Lorem.sentence + '?si='}
     movie_main_embedded {Faker::Alphanumeric.alphanumeric(number: 11)}
@@ -14,10 +14,7 @@ FactoryBot.define do
     talent_x {'http' + Faker::Lorem.sentence}
     talent_hp {'http' + Faker::Lorem.sentence}
     message {Faker::String.random(length: 200)}
+    talent_image { Rack::Test::UploadedFile.new(Rails.root.join('public/images/test_image.jpg'), 'image/png') }
 
-    after(:build) do |post|
-      post.talent_image.attach(io: File.open('public/images/test_image.jpg'), filename: 'test_image.jpg')
-    end
-    
   end
 end

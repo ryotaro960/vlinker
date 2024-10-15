@@ -12,13 +12,15 @@ RSpec.describe Post, type: :model do
         expect(@post).to be_valid
       end
       
-      it 'movie_leftが空でも保存できる' do
+      it 'movie_leftとmovie_left_embeddedが空でも保存できる' do
         @post.movie_left = ''
+        @post.movie_left_embedded = ''
         expect(@post).to be_valid
       end
       
-      it 'movie_rightが空でも保存できる' do
+      it 'movie_rightとmovie_right_embeddedが空でも保存できる' do
         @post.movie_right = ''
+        @post.movie_right_embedded = ''
         expect(@post).to be_valid
       end
 
@@ -60,6 +62,12 @@ RSpec.describe Post, type: :model do
         expect(@post.errors.full_messages).to include("Movie main can't be blank")
       end
 
+      it 'movie_main_embeddedが空では保存できない' do
+        @post.movie_main_embedded = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Movie main embedded can't be blank")
+      end
+
       it 'movie_main_thumbnailが空では保存できない' do
         @post.movie_main_thumbnail = ''
         @post.valid?
@@ -76,6 +84,12 @@ RSpec.describe Post, type: :model do
         @post.talent_name = 'abcdefghijklmnopqrstu'
         @post.valid?
         expect(@post.errors.full_messages).to include("Talent name is too long (maximum is 20 characters)")
+      end
+
+      it "messageが250文字を超えては登録できない" do
+        @post.message =  Faker::String.random(length: 251)
+        @post.valid?
+        expect(@post.errors.full_messages).to include("Message is too long (maximum is 250 characters)")
       end
 
       it 'userが紐付いていないと保存できない' do

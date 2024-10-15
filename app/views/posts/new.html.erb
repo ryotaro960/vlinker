@@ -3,6 +3,7 @@
 <%= form_with model: @post_form, url: posts_path, method: :post, id: 'new_post', local: true do |f| %>
 メイン動画<br>
 <%= f.text_field :movie_main, class:"price-input", id:"item-price", placeholder:"例）300" %>
+<%= f.text_field :movie_main_embedded, class:"price-input", id:"item-price", placeholder:"例）300" %>
 <%= f.text_field :movie_main_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
 メイン動画タグ(任意)<br>
 <%= f.text_field class:"price-input", id:"item-price", placeholder:"例）300" %>
@@ -11,10 +12,10 @@
 <%= f.text_field :movie_tag_name, class:"price-input", id:"item-price", placeholder:"ここに左三つを`\#で接続したものを表示" %><br>
 サブ動画1(任意)<br>
 <%= f.text_field :movie_left, class:"price-input", id:"item-price", placeholder:"例）300" %>
-<%= f.text_field :movie_left_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+<%= f.text_field :movie_left_embedded, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
 サブ動画2(任意)<br>
 <%= f.text_field :movie_right, class:"price-input", id:"item-price", placeholder:"例）300" %>
-<%= f.text_field :movie_right_thumbnail, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
+<%= f.text_field :movie_right_embedded, class:"price-input", id:"item-price", placeholder:"例）300" %><br>
 VTuberイラスト(任意)<br>
 <%= f.file_field :talent_image, id:"talent-image" %><br>
 名前<br>

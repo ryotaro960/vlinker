@@ -1,0 +1,5 @@
+<h1>詳細ページ</h1>
+<div class="movie-main"><iframe src="https://www.youtube.com/embed/<%= @post.movie_main_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<% if @post.talent_image.attached?  %>
+  <%= image_tag @post.talent_image %>
+<% end %>

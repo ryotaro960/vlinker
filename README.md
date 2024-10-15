@@ -21,9 +21,12 @@
 | ------------------- | -------- | --------- |
 |user                 |references|null: false, foreign_key: true|
 |movie_main           |string    |null: false|
+|movie_main_embedded  |string    |null: false|
 |movie_main_thumbnail |string    |null: false|
 |movie_left           |string    |           |
+|movie_left_embedded  |string    |           |
 |movie_right          |string    |           |
+|movie_right_embedded |string    |           |
 |talent_name          |string    |null: false|
 |talent_belongs       |string    |           |
 |talent_channel       |string    |           |

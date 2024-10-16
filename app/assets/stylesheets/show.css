@@ -1,0 +1,32 @@
+.tops-content{
+  display: flex;
+}
+
+.left-content{
+  width: 60vw;
+  height: 1000px;
+  background-color: blue;
+}
+
+iframe{
+  width: clamp(480px, calc(60vw - 60px) , 1200px);
+  height: clamp(270px, calc((60vw - 60px)/ 16 * 9), 675px);
+}
+
+.right-content{
+  width: 40vw;
+  height: 1000px;
+  background-color: brown;
+}
+
+.talent-image{
+  width: clamp(100px, calc(40vw - 60px) , 500px);
+  height: clamp(100px, calc(40vw - 60px) , 500px);
+object-fit: contain;
+}
+
+.talent-introduce{
+  width: calc(40vw - 60px);
+  height: 36px;
+  overflow-wrap: anywhere;
+}

@@ -4,7 +4,13 @@ class PostsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index  
-    @posts = Post.all.order("created_at DESC")
+    if params[:movie_tag]
+      @posts = Post.search_by_movietag(params[:movie_tag]).order("created_at DESC")
+    elsif params[:talent_tag]
+      @posts = Post.search_by_talenttag(params[:talent_tag]).order("created_at DESC")
+    else
+      @posts = Post.all.order("created_at DESC")
+    end
   end
 
   def new
@@ -47,6 +53,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to root_path
+  end
+
+  def search
+    @q = Post.ransack(params[:q])
+    @posts = @q.result
   end
 
   private

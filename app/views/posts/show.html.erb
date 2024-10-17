@@ -6,11 +6,14 @@
       <iframe src="https://www.youtube.com/embed/<%= @post.movie_main_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
       <div class="movie-tags">
         関連タグ：
-        <%= @post.movie_tags.first.movie_tag_name if @post.movie_tags.first.present? %>
-        <%= @post.movie_tags.second.movie_tag_name if @post.movie_tags.second.present? %>
-        <%= @post.movie_tags.third.movie_tag_name if @post.movie_tags.third.present? %>
+        <%= (link_to  @post.movie_tags.first.movie_tag_name, posts_path(movie_tag: @post.movie_tags.first.movie_tag_name)) if @post.movie_tags.first.present?%>
+        <%= (link_to  @post.movie_tags.second.movie_tag_name, posts_path(movie_tag: @post.movie_tags.second.movie_tag_name)) if @post.movie_tags.second.present?%>
+        <%= (link_to  @post.movie_tags.third.movie_tag_name, posts_path(movie_tag: @post.movie_tags.third.movie_tag_name)) if @post.movie_tags.third.present?%>
       </div>
     </div>
+
+  <%= link_to "Tag Name", posts_path(movie_tag: "ガンダム") %>
+
 
     <% unless @post.movie_left_embedded == "" && @post.movie_right_embedded == ""%>
       <h3>オススメ動画</h3>
@@ -55,9 +58,12 @@
         <tr>
           <th class="list-head">関連タグ</th>
           <td>
-          <%= @post.talent_tags.first.talent_tag_name if @post.talent_tags.first.present? %>
-          <%= @post.talent_tags.second.talent_tag_name if @post.talent_tags.second.present? %>
-          <%= @post.talent_tags.third.talent_tag_name if @post.talent_tags.third.present? %>
+            <%= (link_to  @post.talent_tags.first.talent_tag_name, posts_path(talent_tag: @post.talent_tags.first.talent_tag_name)) if @post.talent_tags.first.present?%>
+            <%= (link_to  @post.talent_tags.second.talent_tag_name, posts_path(talent_tag: @post.talent_tags.second.talent_tag_name)) if @post.talent_tags.second.present?%>
+            <%= (link_to  @post.talent_tags.third.talent_tag_name, posts_path(talent_tag: @post.talent_tags.third.talent_tag_name)) if @post.talent_tags.third.present?%>
+          <%#= @post.talent_tags.first.talent_tag_name if @post.talent_tags.first.present? %>
+          <%#= @post.talent_tags.second.talent_tag_name if @post.talent_tags.second.present? %>
+          <%#= @post.talent_tags.third.talent_tag_name if @post.talent_tags.third.present? %>
           </td>
         </tr>
         <tr>

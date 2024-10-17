@@ -1,0 +1,26 @@
+<h1>検索ページ</h1>
+<h3>動画から検索</h3>
+
+<div class='post-contents' id="detailed-search-result-wrapper">
+  <%= search_form_for @q, url: search_posts_path, html: {id: "detailed-search-form"} do |f| %>
+      <div class="search-field">
+        <%= f.label :message_cont, 'コメント' %>
+        <br>
+        <%= f.text_field :message_cont, placeholder: 'コメント' %>
+    </div>
+
+    <div class="search-field">
+      <%= f.label :movie_tag_name_cont, 'コメント' %>
+      <br>
+      <%= f.text_field :movie_tag_name_cont, placeholder: 'コメント' %>
+    </div>
+    <%= f.submit '検索' %>
+  <% end %>
+  <div class="parent">
+    <% @posts.each do |post| %>
+        <div class="index-thumbnail-parent">
+          <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id), class:"index-thumbnail-child" %>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -30,20 +30,45 @@ class PostForm
         PostTalentTag.create(post_id: post.id, talent_tag_id: talent_tag.id)
       end
     end
+  end
 
-    # def update(params, post)
-      #一度タグの紐付けを消す
-      # post.post_tag_relations.destroy_all
-  
-      #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
-      # tag_name = params.delete(:tag_name)
-  
-      #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
-      # tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
-  
-      #タグを保存
+  def update(params, post)
+
+    #一度タグの紐付けを消す
+    post.post_movie_tags.destroy_all
+    post.post_talent_tags.destroy_all
+
+    #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
+    movie_tag_name = params.delete(:movie_tag_name)
+    talent_tag_name = params.delete(:talent_tag_name)
+    #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
+
+    # tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
+
+    #タグを保存
+    post.update(params)
+
+    if movie_tag_name.present?
+      movie_tags = movie_tag_name.split('`/$').map(&:strip)
+      movie_tags.each do |movie_tag|
+        movie_tag = MovieTag.where(movie_tag_name: movie_tag).first_or_initialize
+        movie_tag.save
+        PostMovieTag.create(post_id: post.id, movie_tag_id: movie_tag.id)
+      end
+    end
+
+    if talent_tag_name.present?
+      talent_tags = talent_tag_name.split('`/$').map(&:strip)
+      talent_tags.each do |talent_tag|
+        talent_tag = TalentTag.where(talent_tag_name: talent_tag).first_or_initialize
+        talent_tag.save
+        PostTalentTag.create(post_id: post.id, talent_tag_id: talent_tag.id)
+      end
+    end
+
+
       # tag.save if tag_name.present?
-      # post.update(params)
+      
       # PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
     # end
   end

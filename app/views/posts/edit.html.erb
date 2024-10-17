@@ -1,6 +1,6 @@
 <h1>紹介ページ投稿</h1>
 
-<%= form_with model: @post_form, url: posts_path, method: :post, id: 'new_post', local: true do |f| %>
+<%= form_with model: @post_form, url: post_path(@post.id), method: :patch, id: 'new_post', local: true do |f| %>
 
 <%= render 'shared/error_messages', model: f.object %>
 

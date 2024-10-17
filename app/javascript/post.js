@@ -148,3 +148,4 @@ const rightmovie = () => {
   };
 
   window.addEventListener('turbo:load', edit_tag);
+  window.addEventListener('turbo:render', edit_tag);

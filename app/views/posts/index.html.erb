@@ -1,5 +1,8 @@
 <h1>TopPage</h1>
+<div class="parent">
 <% @posts.each do |post|%>
-  <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id) %>
+  <div class="index-thumbnail-parent">
+    <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id), class:"index-thumbnail-child" %>
+  </div>
 <% end %>
-<%= image_tag 'https://img.youtube.com/vi/s4QDojPDgyg/mqdefault.jpg' %>
+</div>

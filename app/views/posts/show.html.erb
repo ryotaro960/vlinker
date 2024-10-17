@@ -1,0 +1,88 @@
+<%# 動画 %>
+<div class="tops-content">
+  <div class="left-content">
+    <h1 class="call-title">イチオシ動画</h1>
+    <div class="movie-main-content">
+      <iframe src="https://www.youtube.com/embed/<%= @post.movie_main_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+      <div class="movie-tags">
+        関連タグ：
+        <%= @post.movie_tags.first.movie_tag_name if @post.movie_tags.first.present? %>
+        <%= @post.movie_tags.second.movie_tag_name if @post.movie_tags.second.present? %>
+        <%= @post.movie_tags.third.movie_tag_name if @post.movie_tags.third.present? %>
+      </div>
+    </div>
+
+    <% unless @post.movie_left_embedded == "" && @post.movie_right_embedded == ""%>
+      <h3>オススメ動画</h3>
+      <% if @post.movie_left_embedded != "" %>
+        <div class="movie-left"><iframe src="https://www.youtube.com/embed/<%= @post.movie_left_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <% end %>
+      <% if @post.movie_right_embedded != "" %>
+        <div class="movie-right"><iframe src="https://www.youtube.com/embed/<%= @post.movie_right_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%# タレント紹介 %>
+  <div class="right-content">
+
+    <%# メニューボタン %>
+    <div id="menu-btn">
+      <div><%= image_tag 'ham-menu-image.png', class:"menu-icon" %></div>
+      <div id="menu_lists" class="hidden">
+        <div class="menu-list">
+          <%= link_to '編集', edit_post_path(@post.id) %>
+        </div>
+        <div class="menu-list">
+          <%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %>
+        </div>
+      </div>
+    </div>
+
+    <%# タレント詳細 %>
+    <h1 class="call-title">VTuber紹介</h1>
+    <% if @post.talent_image.attached? %>
+      <%= image_tag @post.talent_image, class:"talent-image" %>
+    <% end %>
+
+    <table border="1" class="talent-table">
+      <tbody class="talent-introduce">
+        <tr>
+          <th class="list-head">名前</th>
+          <td><%= @post.talent_name %></td>
+        </tr>
+        <tr>
+          <th class="list-head">関連タグ</th>
+          <td>
+          <%= @post.talent_tags.first.talent_tag_name if @post.talent_tags.first.present? %>
+          <%= @post.talent_tags.second.talent_tag_name if @post.talent_tags.second.present? %>
+          <%= @post.talent_tags.third.talent_tag_name if @post.talent_tags.third.present? %>
+          </td>
+        </tr>
+        <tr>
+          <th class="list-head">所属事務所</th>
+          <td><%= @post.talent_belongs %></td>
+        </tr>
+        <% if @post.talent_channel != "" %>
+          <tr><td colspan="2" class="official-link"><%= link_to 'youtube公式チャンネル', @post.talent_channel, target: :_blank, rel: "noopener noreferrer" %></td></tr>
+        <% end %>
+        <% if @post.talent_x != "" %>
+          <tr><td colspan="2" class="official-link"><%= link_to '公式X', @post.talent_x, target: :_blank, rel: "noopener noreferrer" %></td></tr>
+        <% end %>
+        <% if @post.talent_hp != "" %>
+          <tr><td colspan="2" class="official-link"><%= link_to '公式ホームページ', @post.talent_hp, target: :_blank, rel: "noopener noreferrer" %></td></tr>
+        <% end %>
+        <tr><th colspan="2"><%= @post.user.nickname %>からのコメント</th></tr>
+        <% if @post.message != "" %>
+          <tr><td colspan="2"><%= @post.message %></td></tr>
+        <% else %>
+          <tr><td colspan="2">コメントはまだありません。</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="bottom-content">
+  ※コメント機能実装予定
+</div>

@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+app/assets/images/1.jpg:Zone.Identifier
+app/assets/images/2.jpg:Zone.Identifier
+public/images/ssnet_sankyo-133084_i_20231030142114.jfif:Zone.Identifier

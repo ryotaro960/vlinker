@@ -1,0 +1,72 @@
+.tops-content{
+  display: flex;
+}
+
+.call-title{
+  margin-left: 48px;
+}
+
+.left-content{
+  width: 60%;
+  padding-left: 30px;
+}
+
+iframe{
+  width: clamp(400px, calc(60vw - 60px) , 1200px);
+  height: clamp(225px, calc((60vw - 60px)/ 16 * 9), 675px);
+}
+
+.movie-tags{
+  line-height: 32px;
+}
+
+.right-content{
+  width: 40%;
+}
+
+/* メニュー */
+
+#menu-btn {
+  top: 110px;
+  right: 24px;
+  position: fixed;
+}
+
+.menu-icon{
+  width: 56px;
+  height: 70px;
+}
+
+
+
+.menu-list{
+  width: 54px;
+  background-color: #ddeeee;
+  border: 1px gray solid;
+  text-align: center;
+  line-height: 32px;
+  font-size: 16px;
+}
+
+/* タレント紹介 */
+.talent-image{
+  width: clamp(100px, calc(40vw - 60px) , 500px);
+  height: clamp(100px, calc(40vw - 60px) , 500px);
+  object-fit: contain;
+  margin: auto;
+}
+
+.talent-table{
+  width: calc(40vw - 60px);
+  margin: auto;
+}
+
+.talent-introduce{
+  line-height: 32px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.official-link{
+  text-align: center;
+}

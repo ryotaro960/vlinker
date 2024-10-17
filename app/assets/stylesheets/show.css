@@ -8,7 +8,6 @@
 
 .left-content{
   width: 60%;
-  height: 1000px;
   padding-left: 30px;
 }
 
@@ -23,7 +22,6 @@ iframe{
 
 .right-content{
   width: 40%;
-  height: 1000px;
 }
 
 /* メニュー */
@@ -32,25 +30,18 @@ iframe{
   top: 110px;
   right: 24px;
   position: fixed;
-  background-color: red;
 }
 
 .menu-icon{
   width: 56px;
   height: 70px;
-  border: 2px black solid;
 }
 
-#menu-lists{
-  display: flex;
-  justify-items: center;
-  flex-flow: column;
-  background-color: chartreuse;
-}
+
 
 .menu-list{
-  width: 56px;
-  background-color: aqua;
+  width: 54px;
+  background-color: #ddeeee;
   border: 1px gray solid;
   text-align: center;
   line-height: 32px;

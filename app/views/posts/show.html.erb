@@ -29,14 +29,14 @@
     <%# メニューボタン %>
     <div id="menu-btn">
       <div><%= image_tag 'ham-menu-image.png', class:"menu-icon" %></div>
-      <ul id="menu_lists" class="hidden">
-        <li class="menu-list">
+      <div id="menu_lists" class="hidden">
+        <div class="menu-list">
           <%= link_to '編集', edit_post_path(@post.id) %>
-        </li>
-        <li class="menu-list">
-          <%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete }, class:"menu-list hidden" %>
-        </li>
-      </ul>
+        </div>
+        <div class="menu-list">
+          <%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %>
+        </div>
+      </div>
     </div>
 
     <%# タレント詳細 %>

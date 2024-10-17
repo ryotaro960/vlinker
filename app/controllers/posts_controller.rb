@@ -22,6 +22,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    post_attributes = @post.attributes
+    @post_form = PostForm.new(post_attributes)
+    @post_form.movie_tag_name = "#{@post.movie_tags.first&.movie_tag_name}`/$#{@post.movie_tags.second&.movie_tag_name}`/$#{@post.movie_tags.third&.movie_tag_name}"
+    @post_form.talent_tag_name = "#{@post.talent_tags.first&.talent_tag_name}`/$#{@post.talent_tags.second&.talent_tag_name}`/$#{@post.talent_tags.third&.talent_tag_name}"
+  end
+
   private
   
   def post_form_params

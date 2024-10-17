@@ -1,4 +1,5 @@
 <h1>TopPage</h1>
-<%= @posts.each do |post|%>
-  <%= image_tag post.movie_main_thumbnail %>
+<% @posts.each do |post|%>
+  <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id) %>
 <% end %>
+<%= image_tag 'https://img.youtube.com/vi/s4QDojPDgyg/mqdefault.jpg' %>

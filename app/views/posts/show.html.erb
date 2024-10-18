@@ -28,17 +28,19 @@
   <div class="right-content">
 
     <%# メニューボタン %>
-    <div id="menu-btn">
-      <div><%= image_tag 'ham-menu-image.png', class:"menu-icon" %></div>
-      <div id="menu_lists" class="hidden">
-        <div class="menu-list">
-          <%= link_to '編集', edit_post_path(@post.id) %>
-        </div>
-        <div class="menu-list">
-          <%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %>
+    <% if @post.user_id == current_user.id%>
+      <div id="menu-btn">
+        <div><%= image_tag 'ham-menu-image.png', class:"menu-icon" %></div>
+        <div id="menu_lists" class="hidden">
+          <div class="menu-list">
+            <%= link_to '編集', edit_post_path(@post.id) %>
+          </div>
+          <div class="menu-list">
+            <%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
 
     <%# タレント詳細 %>
     <h1 class="call-title">VTuber紹介</h1>

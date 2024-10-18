@@ -1,8 +1,3 @@
 <h1>TopPage</h1>
-<div class="parent">
-<% @posts.each do |post|%>
-  <div class="index-thumbnail-parent">
-    <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id), class:"index-thumbnail-child" %>
-  </div>
-<% end %>
-</div>
+
+<%= render partial: "shared/posts_index", locals: { posts: @posts } %>

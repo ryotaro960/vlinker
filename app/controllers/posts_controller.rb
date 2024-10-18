@@ -57,9 +57,8 @@ class PostsController < ApplicationController
 
   def search
     @q = Post.ransack(params[:q])
-    @posts = @q.result.includes(:movie_tags)
+    @posts = @q.result.order("created_at DESC")
   end
-  # , :talent_tags
   private
   
   def set_post

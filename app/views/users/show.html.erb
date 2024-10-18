@@ -1,0 +1,15 @@
+<div>
+  <% if @user.user_image.attached? %>
+      <%= image_tag @user.user_image, class:"user-image" %> 
+  <% else %>
+      <%= image_tag "user_icon.png", class:"user-image" %>
+  <% end %>
+ユーザー名：<%= @user.nickname%>
+コメント <%= @user.comment%>
+<div class="parent">
+<% @posts.each do |post|%>
+  <div class="index-thumbnail-parent">
+    <%= link_to image_tag(post.movie_main_thumbnail), post_path(post.id), class:"index-thumbnail-child" %>
+  </div>
+<% end %>
+</div>

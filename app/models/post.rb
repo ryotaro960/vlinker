@@ -16,11 +16,11 @@ class Post < ApplicationRecord
     [ "movie_tags", "talent_tags" ]
   end
 
-  # def self.search_by_movietag(movie_tag_name)
-    # joins(:movie_tags).where(movie_tags: { movie_tag_name: movie_tag_name })
-  # end
+  def self.search_by_movietag(movie_tag_name)
+    joins(:movie_tags).where(movie_tags: { movie_tag_name: movie_tag_name })
+  end
 
-  # def self.search_by_talenttag(talent_tag_name)
-    # joins(:talent_tags).where(talent_tags: { talent_tag_name: talent_tag_name })
-  # end
+  def self.search_by_talenttag(talent_tag_name)
+    joins(:talent_tags).where(talent_tags: { talent_tag_name: talent_tag_name })
+  end
 end

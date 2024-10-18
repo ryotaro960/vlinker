@@ -6,6 +6,7 @@
       <iframe src="https://www.youtube.com/embed/<%= @post.movie_main_embedded %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
       <div class="movie-tags">
         関連タグ：
+        
         <%= (link_to  @post.movie_tags.first.movie_tag_name, posts_path(movie_tag: @post.movie_tags.first.movie_tag_name)) if @post.movie_tags.first.present?%>
         <%= (link_to  @post.movie_tags.second.movie_tag_name, posts_path(movie_tag: @post.movie_tags.second.movie_tag_name)) if @post.movie_tags.second.present?%>
         <%= (link_to  @post.movie_tags.third.movie_tag_name, posts_path(movie_tag: @post.movie_tags.third.movie_tag_name)) if @post.movie_tags.third.present?%>

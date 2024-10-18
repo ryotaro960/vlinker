@@ -3,16 +3,32 @@
 
 <div class='post-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_posts_path, html: {id: "detailed-search-form"} do |f| %>
-      <div class="search-field">
-        <%= f.label :message_cont, 'コメント' %>
-        <br>
-        <%= f.text_field :message_cont, placeholder: 'コメント' %>
+    <div class="search-field">
+      <%= f.label :movie_tags_movie_tag_name_cont, '動画タグ' %>
+      <br>
+      <%= f.text_field :movie_tags_movie_tag_name_cont, placeholder: '動画タグ' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :message_cont, 'コメント' %>
+      <br>
+      <%= f.text_field :message_cont, placeholder: 'コメント' %>
     </div>
 
+<h3>VTuberから検索</h3>
     <div class="search-field">
-      <%= f.label :movie_tag_name_cont, 'コメント' %>
+      <%= f.label :talent_name_cont, '名前' %>
       <br>
-      <%= f.text_field :movie_tag_name_cont, placeholder: 'コメント' %>
+      <%= f.text_field :talent_name_cont, placeholder: '名前' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :talent_belongs_cont, '所属事務所' %>
+      <br>
+      <%= f.text_field :talent_belongs_cont, placeholder: '所属事務所' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :talent_tags_talent_tag_name_cont, 'VTuberタグ' %>
+      <br>
+      <%= f.text_field :talent_tags_talent_tag_name_cont, placeholder: 'VTuber' %>
     </div>
     <%= f.submit '検索' %>
   <% end %>

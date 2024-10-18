@@ -33,19 +33,10 @@ class PostForm
   end
 
   def update(params, post)
-
-    #一度タグの紐付けを消す
     post.post_movie_tags.destroy_all
     post.post_talent_tags.destroy_all
-
-    #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
     movie_tag_name = params.delete(:movie_tag_name)
     talent_tag_name = params.delete(:talent_tag_name)
-    #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
-
-    # tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
-
-    #タグを保存
     post.update(params)
 
     if movie_tag_name.present?
@@ -65,11 +56,5 @@ class PostForm
         PostTalentTag.create(post_id: post.id, talent_tag_id: talent_tag.id)
       end
     end
-
-
-      # tag.save if tag_name.present?
-      
-      # PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
-    # end
   end
 end

@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index  
-    @posts = Post.all
+    if params[:movie_tag]
+      @posts = Post.search_by_movietag(params[:movie_tag]).order("created_at DESC")
+    elsif params[:talent_tag]
+      @posts = Post.search_by_talenttag(params[:talent_tag]).order("created_at DESC")
+    else
+      @posts = Post.all.order("created_at DESC")
+    end
   end
 
   def new
@@ -49,6 +55,11 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:movie_tags)
+  end
+  # , :talent_tags
   private
   
   def set_post
